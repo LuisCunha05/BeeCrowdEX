@@ -9,15 +9,28 @@
 # Cada caractere representa uma instrução que deve ser feita. Um caractere entre 'a' e 'z' indica que deve ser realizado uma instrução do tipo 
 # 1 com esse caractere. Um caractere '?' representa uma instrução do tipo 2.
 
+def subAmount(arg: str) -> int:
+    """Retorna a quantidade de SubStrings Únicas de uma string"""
+    arg = arg.replace('?', '')
+    length = len(arg)
+    sub = set()
+    for i in range(length):
+        for j in range(1 + i, length + 1):
+            sub.add(arg[i:j])
+    return len(sub)
 
-def subAmount( val: str) -> int:
-    save = []
-    val = val.replace('?', '')
-    for idx in range(1, len(val) + 1):
-        save.append(val[:idx])
-    return save
+while(True):
+    try:
+        io = input()
+        for index, value in enumerate(io):
+            if(value == '?'):
+                print(subAmount(io[:index + 1]))
+    except EOFError:
+        break
 
-opa = input()
-
-for item in subAmount(opa):
-    print(item)
+#subList = list(subStrings)
+#subList.sort()
+#
+#for item in subList:
+#    print(item)
+#print(f'size: {len(subStrings)}')
