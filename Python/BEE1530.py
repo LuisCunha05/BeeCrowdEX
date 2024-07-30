@@ -27,10 +27,3 @@ while(True):
                 print(subAmount(io[:index + 1]))
     except EOFError:
         break
-
-#subList = list(subStrings)
-#subList.sort()
-#
-#for item in subList:
-#    print(item)
-#print(f'size: {len(subStrings)}')
